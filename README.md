@@ -119,18 +119,15 @@ PostgreSQL stores all customer and order information.
 
 ## System Architecture
 
+The application follows a simple full-stack architecture where the frontend, backend, and database work together to handle user requests.
+
+```text
 Customer Browser
-       │
-       ▼
+      ↓
 React + Next.js Frontend
-       │
-       ▼
-REST API Requests
-       │
-       ▼
+      ↓ REST API Requests
 Node.js + Express Backend
-       │
-       ▼
+      ↓ Database Queries
 PostgreSQL Database
 
 ---
