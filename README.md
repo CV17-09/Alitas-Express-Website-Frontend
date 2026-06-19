@@ -1,10 +1,10 @@
-# Alitas Express Full-Stack Ordering Website
+# Alitas Express Frontend
 
 ## Overview
 
-Alitas Express is a full-stack restaurant ordering website designed for a wings delivery business. The platform transforms a traditional promotional flyer into a modern digital experience where customers can browse available wing flavors, place orders online, and view delivery information.
+Alitas Express Frontend is a modern restaurant ordering website built for a wings delivery business. The application provides customers with an easy-to-use platform to browse available wing flavors, learn about the restaurant, and place delivery orders online.
 
-The application includes a responsive frontend for customers and a backend system that processes and stores order information.
+The frontend is designed to transform a traditional promotional flyer into a responsive digital experience that works across desktop, tablet, and mobile devices.
 
 ---
 
@@ -12,33 +12,26 @@ The application includes a responsive frontend for customers and a backend syste
 
 ### Customer Features
 
-- View available wing flavors
-- Browse restaurant information
-- Place delivery orders online
-- Mobile-friendly responsive design
-- Quick contact and ordering options
-- Attractive promotional landing page
-
-### Backend Features
-
-- Order submission processing
-- Customer information storage
-- Order management API
-- Input validation
-- Database integration
-- RESTful API architecture
+* Browse available wing flavors
+* View restaurant information
+* Place delivery orders online
+* Mobile-friendly responsive design
+* Quick contact and ordering options
+* Modern landing page experience
+* Real-time form validation
+* Order confirmation feedback
 
 ---
 
 ## Available Flavors
 
-- Classic
-- BBQ
-- Buffalo
-- Hot
-- Lemon Pepper
-- Mango Habanero
-- Teriyaki
+* Classic
+* BBQ
+* Buffalo
+* Hot
+* Lemon Pepper
+* Mango Habanero
+* Teriyaki
 
 ---
 
@@ -46,26 +39,17 @@ The application includes a responsive frontend for customers and a backend syste
 
 ### Frontend
 
-- React
-- Next.js
-- Tailwind CSS
+* React
+* Next.js
+* Tailwind CSS
+* TypeScript
 
-### Backend
+### Tools
 
-- Node.js
-- Express.js
-
-### Database
-
-- PostgreSQL
-
-### Tools & Development
-
-- Git
-- GitHub
-- REST APIs
-- Postman
-- npm
+* Git
+* GitHub
+* npm
+* REST APIs
 
 ---
 
@@ -73,87 +57,108 @@ The application includes a responsive frontend for customers and a backend syste
 
 The frontend is built using React and Next.js to provide a fast, responsive, and scalable user experience.
 
-Responsibilities:
+### Responsibilities
 
-- Display restaurant information
-- Render menu items and wing flavors
-- Collect customer order information
-- Validate form inputs
-- Communicate with backend APIs
-- Display order confirmations and error messages
-
----
-
-## Backend Architecture
-
-The backend follows a RESTful API architecture using Node.js and Express.js.
-
-Responsibilities:
-
-- Receive customer order requests
-- Validate incoming data
-- Process business logic
-- Interact with PostgreSQL database
-- Return API responses to the frontend
-
----
-
-## Database Architecture
-
-PostgreSQL stores all customer and order information.
-
-### Orders Table
-
-| Column | Data Type |
-|----------|----------|
-| id | SERIAL PRIMARY KEY |
-| customer_name | VARCHAR(100) |
-| phone_number | VARCHAR(20) |
-| delivery_address | TEXT |
-| flavor | VARCHAR(50) |
-| quantity | INTEGER |
-| order_status | VARCHAR(20) |
-| created_at | TIMESTAMP |
-
----
-
-## System Architecture
-
-The application follows a simple full-stack architecture where the frontend, backend, and database work together to handle user requests.
-
-```text
-Customer Browser
-      ↓
-React + Next.js Frontend
-      ↓ REST API Requests
-Node.js + Express Backend
-      ↓ Database Queries
-PostgreSQL Database
+* Display restaurant information
+* Render menu items and wing flavors
+* Collect customer order information
+* Validate form inputs
+* Communicate with backend APIs
+* Display order confirmations and error messages
 
 ---
 
 ## Application Workflow
 
 1. Customer visits the website.
-2. Customer views available wing flavors.
+2. Customer browses available wing flavors.
 3. Customer selects flavor and quantity.
 4. Customer enters contact and delivery information.
-5. Frontend sends a POST request to the backend.
-6. Express validates the request.
-7. Order is stored in PostgreSQL.
-8. Backend returns a success response.
-9. Customer receives order confirmation.
+5. Frontend validates the form data.
+6. Frontend sends a request to the backend API.
+7. Customer receives confirmation after successful submission.
+
+---
+
+## Project Structure
+
+```text
+src/
+├── app/
+├── components/
+├── public/
+├── styles/
+├── lib/
+└── types/
+```
+
+---
+
+## API Integration
+
+The frontend communicates with the backend through REST APIs.
+
+### Example Endpoint
+
+```http
+POST /api/orders
+```
+
+### Request Payload
+
+```json
+{
+  "customerName": "John Doe",
+  "phoneNumber": "(555) 123-4567",
+  "deliveryAddress": "123 Main Street",
+  "flavor": "Mango Habanero",
+  "quantity": 20
+}
+```
+
+---
+
+## Getting Started
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Run Development Server
+
+```bash
+npm run dev
+```
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+### Start Production Server
+
+```bash
+npm start
+```
 
 ---
 
 ## Future Enhancements
 
-- User authentication
-- Customer accounts
-- Online payment processing (Stripe)
-- Order tracking
-- Admin dashboard
-- Inventory management
-- SMS notifications
-- Email order confirmations
-- Analytics and reporting
+* Customer accounts
+* Order tracking
+* Online payments
+* Loyalty rewards program
+* Email confirmations
+* SMS notifications
+* Customer order history
+* Delivery status tracking
+
+---
+
+## License
+
+This project is intended for educational and portfolio purposes.
