@@ -1,11 +1,46 @@
-const stats = [
-  { title: "Today’s Orders", value: "12", note: "New orders today" },
-  { title: "Pending", value: "4", note: "Need attention" },
-  { title: "Completed", value: "8", note: "Finished orders" },
-  { title: "Menu Items", value: "7", note: "Active flavors" },
-];
+"use client";
+
+import { useEffect, useState } from "react";
+
+type Order = {
+  id: number;
+  customerName: string;
+  phoneNumber: string;
+  deliveryAddress: string;
+  flavor: string;
+  quantity: number;
+  orderStatus: string;
+  createdAt: string;
+};
 
 export default function AdminDashboardPage() {
+  const [orders, setOrders] = useState<Order[]>([]);
+
+  useEffect(() => {
+    const fetchOrders = async () => {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/orders`);
+      const data = await response.json();
+      setOrders(data);
+    };
+
+    fetchOrders();
+  }, []);
+
+  const pendingOrders = orders.filter(
+    (order) => order.orderStatus === "Pending"
+  ).length;
+
+  const completedOrders = orders.filter(
+    (order) => order.orderStatus === "Completed"
+  ).length;
+
+  const stats = [
+    { title: "Today’s Orders", value: orders.length.toString(), note: "Total orders saved" },
+    { title: "Pending", value: pendingOrders.toString(), note: "Need attention" },
+    { title: "Completed", value: completedOrders.toString(), note: "Finished orders" },
+    { title: "Menu Items", value: "7", note: "Active flavors" },
+  ];
+
   return (
     <main className="min-h-screen bg-[#0B0B0B] px-6 py-12 text-white">
       <div className="mx-auto max-w-6xl">
