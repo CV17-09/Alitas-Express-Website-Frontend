@@ -143,8 +143,4 @@ npm start
 * Customer order history
 * Delivery status tracking
 
----
 
-## License
-
-This project is intended for educational and portfolio purposes.
