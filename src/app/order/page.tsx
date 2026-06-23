@@ -4,6 +4,7 @@ import { useState } from "react";
 
 export default function OrderPage() {
   const [customerName, setCustomerName] = useState("");
+  const [customerEmail, setCustomerEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [deliveryAddress, setDeliveryAddress] = useState("");
   const [flavor, setFlavor] = useState("Classic");
@@ -23,6 +24,7 @@ export default function OrderPage() {
           },
           body: JSON.stringify({
             customerName,
+            customerEmail,
             phoneNumber,
             deliveryAddress,
             flavor,
@@ -37,6 +39,7 @@ export default function OrderPage() {
         setMessage("Order submitted successfully!");
 
         setCustomerName("");
+        setCustomerEmail("");
         setPhoneNumber("");
         setDeliveryAddress("");
         setFlavor("Classic");
@@ -61,6 +64,15 @@ export default function OrderPage() {
             value={customerName}
             onChange={(e) => setCustomerName(e.target.value)}
             placeholder="Customer Name"
+            className="rounded-xl border border-white/20 bg-white/10 px-4 py-3"
+            required
+          />
+
+          <input
+            type="email"
+            value={customerEmail}
+            onChange={(e) => setCustomerEmail(e.target.value)}
+            placeholder="Email Address"
             className="rounded-xl border border-white/20 bg-white/10 px-4 py-3"
             required
           />
@@ -106,7 +118,7 @@ export default function OrderPage() {
 
           <button
             type="submit"
-            className="rounded-xl bg-[#A61E1E] px-6 py-4 text-xl font-black uppercase"
+            className="rounded-xl bg-[#A61E1E] px-6 py-4 text-xl font-black uppercase hover:bg-red-800"
           >
             Submit Order
           </button>
